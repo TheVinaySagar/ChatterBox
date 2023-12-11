@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection',socket=>{
     // console.log('New WS Connection...')  
-    socket.on('joinRoom',({username,room}) =>{
+    socket  .on('joinRoom',({username,room}) =>{
         const user  = userJoin(socket.id,username,room);
 
         socket.join(user.room);
