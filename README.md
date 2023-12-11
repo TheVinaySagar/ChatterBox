@@ -31,7 +31,8 @@ Note: This is a brief overview. Feel free to customize it further by highlightin
 
 ______________________________________________________________________________________________________________________________________________________________________________________________________________________
 For Chatting purpose You can link to join with people or You can invite the friends to join with you.
-Link ---------- https://chatter-box-b4py.onrender.com
+# Link
+https://chatter-box-b4py.onrender.com
 
 # Disclaimer 
 This is not the Stable version of our Project. So Please take care of following Things
