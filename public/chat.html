@@ -1,54 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/style.css">
-  <title>ChatCord App</title>
+  <title>ChatterBox - Live Chat</title>
 </head>
 <body>
-  <div class="chat-container">
+  <div class="chat-container fade-in">
     <header class="chat-header">
-      <h1><i class="fas fa-smile"></i> ChatterBox</h1>
-      <a href="index.html" class="btn">Leave Room</a>
+      <h1><i class="fas fa-comments"></i> ChatterBox</h1>
+      <div class="controls">
+        <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="index.html" class="btn btn-secondary">
+          <i class="fas fa-sign-out-alt"></i> Leave Room
+        </a>
+      </div>
     </header>
+    
     <main class="chat-main">
       <div class="chat-sidebar">
-        <h3><i class="fas fa-comments"></i> Room Name:</h3>
-        <h2 id="room-name"></h2>
-        <h3><i class="fas fa-users"></i> Users</h3>
-        <ul id="users">
-          
-        </ul>
+        <div class="room-info">
+          <h2 id="room-name">Loading...</h2>
+          <p><i class="fas fa-users"></i> <span id="user-count">0</span> users online</p>
+        </div>
+        
+        <div class="users-section">
+          <h3><i class="fas fa-users"></i> Active Users</h3>
+          <div class="users-list" id="users">
+            <!-- Users will be populated here -->
+          </div>
+        </div>
       </div>
-      <div class="chat-messages">
-					<!-- <div class="message"> -->
-						<!-- <p class="meta">Brad <span>9:12pm</span></p> -->
-						<!-- <p class="text">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-							repudiandae.
-						</p>
-					</div>
-					<div class="message">
-						<p class="meta">Mary <span>9:15pm</span></p>
-						<p class="text">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-							repudiandae.
-						</p> -->
-					<!-- </div> -->
+      
+      <div class="chat-messages" id="chat-messages">
+        <!-- Messages will appear here -->
       </div>
     </main>
+    
     <div class="chat-form-container">
-      <form id="chat-form">
-        <input
-          id="msg"
-          type="text"
-          placeholder="Enter Message"
-          required
-          autocomplete="off"
-        />
-        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+      <div class="chat-features">
+        <div class="feature-indicator">
+          <div class="online-indicator"></div>
+          <span>Online</span>
+        </div>
+        <div class="feature-indicator" id="typing-status">
+          <i class="fas fa-keyboard"></i>
+          <span>Ready to type</span>
+        </div>
+      </div>
+      
+      <form class="chat-form" id="chat-form">
+        <div class="message-input-container">
+          <textarea
+            id="msg"
+            class="message-input"
+            placeholder="Type your message..."
+            required
+            autocomplete="off"
+            rows="1"
+          ></textarea>
+          <button type="button" class="emoji-button" id="emoji-button">😊</button>
+          <div class="emoji-picker" id="emoji-picker">
+            <!-- Emojis will be populated here -->
+          </div>
+        </div>
+        <button type="submit" class="send-button" id="send-button">
+          <i class="fas fa-paper-plane"></i>
+        </button>
       </form>
     </div>
   </div>

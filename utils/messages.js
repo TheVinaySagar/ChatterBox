@@ -1,11 +1,12 @@
-const moment =require('moment');
-const { format } = require('path');
+const moment = require('moment');
 
-function formatMessage(username,text){
-    return{
+function formatMessage(username, text) {
+    return {
         username,
         text,
-        time : moment().format('h :mm a')
-    }
+        time: moment().format('h:mm a'),
+        timestamp: moment().toISOString()
+    };
 }
+
 module.exports = formatMessage;

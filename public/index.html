@@ -6,44 +6,98 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="css/style.css" />
-		<title>ChatCord App</title>
+		<title>ChatterBox - Connect & Chat</title>
+		<meta name="description" content="Join ChatterBox for real-time conversations. Connect with friends and chat in various themed rooms.">
 	</head>
 	<body>
-		<div class="join-container">
+		<div class="join-container fade-in">
 			<header class="join-header">
-				<h1><i class="fas fa-smile"></i> ChatterBox</h1>
+				<h1><i class="fas fa-comments"></i> ChatterBox</h1>
+				<p style="margin-top: 10px; opacity: 0.9; font-size: 16px;">Connect. Chat. Collaborate.</p>
 			</header>
 			<main class="join-main">
+				<p>Welcome to ChatterBox! Join a room and start chatting with people around the world.</p>
 				<form action="chat.html">
 					<div class="form-control">	
-						<label for="username">Username</label>
+						<label for="username"><i class="fas fa-user"></i> Username</label>
 						<input
 							type="text"
 							name="username"
 							id="username"
-							placeholder="Enter username..."
+							placeholder="Enter your username..."
 							required
+							maxlength="20"
 						/>
 					</div>
 					<div class="form-control">
-						<label for="room">Room</label>
+						<label for="room"><i class="fas fa-door-open"></i> Choose Room</label>
 						<select name="room" id="room">
-							<option value="JavaScript">JavaScript</option>
-							<option value="Python">Python</option>
-							<option value="PHP">PHP</option>
-							<option value="C#">C#</option>
-							<option value="Ruby">Ruby</option>
-							<option value="Java">Java</option>
+							<option value="JavaScript">🟨 JavaScript Developers</option>
+							<option value="Python">🐍 Python Enthusiasts</option>
+							<option value="React">⚛️ React Community</option>
+							<option value="Node.js">🟢 Node.js Developers</option>
+							<option value="General">💬 General Discussion</option>
+							<option value="Gaming">🎮 Gaming Zone</option>
+							<option value="Music">🎵 Music Lovers</option>
+							<option value="Movies">🎬 Movie Buffs</option>
 						</select>
 					</div>
-					<button type="submit" class="btn">Join Chat</button>
+					<button type="submit" class="btn join-btn">
+						<i class="fas fa-sign-in-alt"></i> Enter Chat Room
+					</button>
 				</form>
+				
+				<div class="features-grid">
+					<div class="feature-item">
+						<div class="feature-icon">
+							<i class="fas fa-bolt"></i>
+						</div>
+						<span>Real-time messaging</span>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<i class="fas fa-users"></i>
+						</div>
+						<span>Multiple chat rooms</span>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<i class="fas fa-smile"></i>
+						</div>
+						<span>Emoji support</span>
+					</div>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<i class="fas fa-shield-alt"></i>
+						</div>
+						<span>Safe & secure</span>
+					</div>
+				</div>
 			</main>
 		</div>
+		
+		<script>
+			// Add some interactivity to the join form
+			document.getElementById('username').addEventListener('input', function(e) {
+				const value = e.target.value;
+				if (value.length > 0) {
+					e.target.style.borderColor = 'var(--success-color)';
+				} else {
+					e.target.style.borderColor = 'var(--border-color)';
+				}
+			});
+
+			// Add loading state to form submission
+			document.querySelector('form').addEventListener('submit', function(e) {
+				const button = document.querySelector('.join-btn');
+				button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Joining...';
+				button.disabled = true;
+			});
+		</script>
 	</body>
 </html>
